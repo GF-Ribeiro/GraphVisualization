@@ -40,10 +40,15 @@ public class GraphBuilder : MonoBehaviour
 
     public InverseButton inverseButton;
 
+    public List<Color> colors;
+
     private void Awake()
     {
         instance = this;
         UpdateWaitValue();
+
+        colors.AddRange(colors);
+        colors.AddRange(colors);
     }
 
     public void GenerateGraph(Graph graph)
@@ -92,6 +97,10 @@ public class GraphBuilder : MonoBehaviour
         if(graph.IsDirected())
         {
             GenerateInverseGraph(graph);
+        }
+        else
+        {
+            inverseButton.gameObject.SetActive(false);
         }
     }
 
@@ -155,7 +164,6 @@ public class GraphBuilder : MonoBehaviour
         selectedNodes.Add(unityNodes[randomNode]);
         candidates.AddRange(unityNodes[randomNode].GetConnections());
 
-        
         while(selectedNodes.Count < unityNodes.Count)
         {
             if (wait)
@@ -245,21 +253,11 @@ public class GraphBuilder : MonoBehaviour
         List<UnityEdge> selectedEdges = new List<UnityEdge>();
         List<UnityEdge> orederedEdges = unityEdges.OrderBy(edge => edge.GetDistance()).ToList();
         int[] currentTree = new int[unityNodes.Count];
-        List<Color> colors = new List<Color>();
         
         for (int i = 0; i < unityEdges.Count; i++)
         {
             unityEdges[i].SetColor(Color.white);
         }
-
-        colors.Add(Color.yellow);
-        colors.Add(Color.blue);
-        colors.Add(Color.red);
-        colors.Add(Color.green);
-        colors.Add(Color.grey);
-        colors.Add(Color.cyan);
-        colors.Add(Color.magenta);
-        colors.Add(Color.white);
 
         for (int i = 0; i < currentTree.Length; i++)
         {
@@ -326,8 +324,6 @@ public class GraphBuilder : MonoBehaviour
     {
         visited = new bool[unityNodes.Count];
 
-        List<Color> colors = new List<Color>();
-
         if(!useStack)
         {
             finishedStack = new Stack<int>();
@@ -338,15 +334,6 @@ public class GraphBuilder : MonoBehaviour
             unityNodes[i].SetColor(Color.white);
             unityNodes[i].SetWeight(0);
         }
-
-        colors.Add(Color.yellow);
-        colors.Add(Color.blue);
-        colors.Add(Color.red);
-        colors.Add(Color.green);
-        colors.Add(Color.grey);
-        colors.Add(Color.cyan);
-        colors.Add(Color.magenta);
-        colors.Add(Color.white);
 
         int currentColor = 0;
 
@@ -439,22 +426,11 @@ public class GraphBuilder : MonoBehaviour
         visited = new bool[unityNodes.Count];
         Queue<UnityNode> queue = new Queue<UnityNode>();
 
-        List<Color> colors = new List<Color>();
-
         for (int i = 0; i < unityNodes.Count; i++)
         {
             unityNodes[i].SetColor(Color.white);
             unityNodes[i].SetWeight(0);
         }
-
-        colors.Add(Color.yellow);
-        colors.Add(Color.blue);
-        colors.Add(Color.red);
-        colors.Add(Color.green);
-        colors.Add(Color.grey);
-        colors.Add(Color.cyan);
-        colors.Add(Color.magenta);
-        colors.Add(Color.white);
 
         int currentColor = 0;
         visitedNotes = 1;

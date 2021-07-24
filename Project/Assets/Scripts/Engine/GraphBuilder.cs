@@ -180,6 +180,11 @@ public class GraphBuilder : MonoBehaviour
             float minValue = float.PositiveInfinity;
             int selectedCandidate = 0;
 
+            for (int i = 0; i < unityEdges.Count; i++)
+            {
+                unityEdges[i].SetColor(Color.white);
+            }
+
             for (int j = 0; j < candidates.Count; j++)
             {
                 if (selectedNodesAux[candidates[j].GetGraphEdge().GetNodeAIndex()] == 0 || selectedNodesAux[candidates[j].GetGraphEdge().GetNodeBIndex()] == 0)
@@ -239,6 +244,7 @@ public class GraphBuilder : MonoBehaviour
 
         for (int i = 0; i < selectedEdges.Count; i++)
         {
+            selectedEdges[i].SetColor(Color.white);
             unityEdges.Remove(selectedEdges[i]);
         }
         for (int i = 0; i < unityEdges.Count; i++)

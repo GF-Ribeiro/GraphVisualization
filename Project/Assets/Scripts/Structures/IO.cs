@@ -12,7 +12,8 @@ public class IO
     {
         try
         {
-            string fileLocation = Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) + "/Parametros Grafo.txt";
+            Debug.Log(Application.dataPath);
+            string fileLocation = Application.dataPath + "/Parametros Grafo.txt";
             StreamReader streanReader = new StreamReader(fileLocation);
             int currentLine = 0;
 
@@ -146,7 +147,7 @@ public class IO
             }
         }
 
-        string fileLocation = Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) + "/Matriz Adjacencia.txt";
+        string fileLocation = Application.dataPath + "/Matriz Adjacencia.txt";
 
         WriteString(output, fileLocation);
     }
@@ -179,7 +180,7 @@ public class IO
             }
         }
 
-        string fileLocation = Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) + "/Matriz Incidencia.txt";
+        string fileLocation = Application.dataPath + "/Matriz Incidencia.txt";
 
         WriteString(output, fileLocation);
     }

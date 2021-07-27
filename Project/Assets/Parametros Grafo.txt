@@ -1,0 +1,13 @@
+6
+N
+A B White 3
+B C White 7
+A D White 3
+D E Black 9
+B E Black 8
+C E Black 2
+C F Black 2
+C D Black 8
+B F Black 9
+F E Black 8
+A F Black 4

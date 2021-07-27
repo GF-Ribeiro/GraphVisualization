@@ -82,6 +82,7 @@ public class UnityEdge : MonoBehaviour
 
     public void OpenOptions()
     {
+        optionsPanel.gameObject.SetActive(true);
         optionsPanel.DOScale(Vector3.one, 0.3f);
     }
 

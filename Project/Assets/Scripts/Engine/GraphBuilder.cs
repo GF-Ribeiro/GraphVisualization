@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using TMPro;
 
 public class GraphBuilder : MonoBehaviour
 {
@@ -41,6 +42,12 @@ public class GraphBuilder : MonoBehaviour
     public InverseButton inverseButton;
 
     public List<Color> colors;
+
+    public GameObject kosajaruButton;
+
+    public GameObject stackIndexPrefab;
+
+    public Transform stackCointainer;
 
     private void Awake()
     {
@@ -101,6 +108,7 @@ public class GraphBuilder : MonoBehaviour
         else
         {
             inverseButton.gameObject.SetActive(false);
+            kosajaruButton.SetActive(false);
         }
     }
 
@@ -375,6 +383,11 @@ public class GraphBuilder : MonoBehaviour
         yield return StartCoroutine(StartDepthSearchCoroutine(unityNodes));
 
         inverseButton.Inverse();
+
+        foreach (int index in finishedStack)
+        {
+            Instantiate(stackIndexPrefab, stackCointainer).GetComponent<TextMeshProUGUI>().text = unityNodes[index].nameText.text;
+        }
 
         yield return StartCoroutine(StartDepthSearchCoroutine(inversedUnityNodes, true));
 

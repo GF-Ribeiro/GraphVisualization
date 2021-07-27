@@ -12,7 +12,6 @@ public class IO
     {
         try
         {
-            Debug.Log(Application.dataPath);
             string fileLocation = Application.dataPath + "/Parametros Grafo.txt";
             StreamReader streanReader = new StreamReader(fileLocation);
             int currentLine = 0;
@@ -187,7 +186,6 @@ public class IO
 
     private static void WriteString(string text, string filePath)
     {
-        //Write some text to the test.txt file
         StreamWriter writer = new StreamWriter(filePath, false);
         writer.WriteLine(text);
         writer.Close();

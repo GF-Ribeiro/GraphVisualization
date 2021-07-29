@@ -190,7 +190,10 @@ public class GraphBuilder : MonoBehaviour
 
             for (int i = 0; i < unityEdges.Count; i++)
             {
-                unityEdges[i].SetColor(Color.white);
+                if(!selectedEdges.Contains(unityEdges[i]))
+                {
+                    unityEdges[i].SetColor(Color.white);
+                }
             }
 
             for (int j = 0; j < candidates.Count; j++)
@@ -382,6 +385,7 @@ public class GraphBuilder : MonoBehaviour
     {
         yield return StartCoroutine(StartDepthSearchCoroutine(unityNodes));
 
+        ScreenResizer.SetNativeRes();
         inverseButton.Inverse();
 
         foreach (int index in finishedStack)

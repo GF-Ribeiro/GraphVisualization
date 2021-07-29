@@ -51,13 +51,11 @@ public class UnityNode : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     private void OnMouseDown()
     {
-        print("ue");
         difference = new Vector2(transform.position.x, transform.position.y) - new Vector2(Input.mousePosition.x, Input.mousePosition.y);
     }
 
     private void OnMouseDrag()
     {
-        print("eu");
         transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y) + difference;
     }
 

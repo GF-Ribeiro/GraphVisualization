@@ -326,6 +326,7 @@ MonoBehaviour:
   nameText: {fileID: 5775436256174737730}
   weightText: {fileID: 2469277150598545831}
   image: {fileID: 9029266064961670249}
+  connections: []
 --- !u!1 &9029266065713646549
 GameObject:
   m_ObjectHideFlags: 0
